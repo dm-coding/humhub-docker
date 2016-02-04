@@ -1,0 +1,28 @@
+app:
+        image: hub
+        environment:
+                VIRTUAL_HOST: hub.common.scot
+                ENVIRONMENT: dev
+        volumes:
+                - ./vhost:/etc/nginx/sites-available:ro
+                - /etc/ssmtp/ssmtp.conf:/etc/ssmtp/ssmtp.conf:ro
+        ports:
+                - "80:80"
+        links:
+                - db
+        container_name: hub
+        mem_limit: 1000m
+        cpu_shares: 240
+db:
+        image: mysql
+        mem_limit: 1000m
+        cpu_shares: 240
+        expose:
+               - "3306"
+        restart: always
+        environment:
+                MYSQL_ROOT_PASSWORD: 32720283b5fb32
+                MYSQL_DATABASE: humhub
+                MYSQL_USER: hub_user
+                MYSQL_PASSWORD: f90bff2494d
+        container_name: hub_db_dev
