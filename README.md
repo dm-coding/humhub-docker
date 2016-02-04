@@ -10,5 +10,7 @@ $ docker-compose up -d
 
 Humhub lives in /var/www/html, which is a docker volume. But if you want to link it to the host filesystem thigns are a little more complicated. In that case, I suggest you bring the container up, find the location where the volume is held, copy it to the current working directory, then ammend the docker-compose file to overlay the new copy of the humhub files into the container's /var/www/html volume.
 
+You can edit nginx's vhost settings by changing the vhost/default.conf file; this mounts directly into the container's /etc/nginx filesystem.
+
 # To Do
 Make the build quicker and more automated by copying the configuration data directly into the image at build and providing an SQL script to run.

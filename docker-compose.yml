@@ -1,5 +1,5 @@
 app:
-        image: hub
+        build: .
         environment:
                 VIRTUAL_HOST: hub.common.scot
                 ENVIRONMENT: dev
