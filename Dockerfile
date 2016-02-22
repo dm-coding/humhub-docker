@@ -16,6 +16,5 @@ RUN git config --global url."https://".insteadOf "git://" && \
     ./composer.phar config --global github-protocols https && \
     ./composer.phar global require "fxp/composer-asset-plugin:~1.1.0" && \
     ./composer.phar update && \
-    chmod 755 /usr/local/bin/post-install.sh && \
     /usr/local/bin/post-install.sh
 VOLUME ["/var/www/html"]
